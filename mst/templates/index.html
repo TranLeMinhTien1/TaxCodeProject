@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Mã Số Thuế</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header shadow-sm bg-white ">
+                        <h1 class="display-8 text-danger">MÃ SỐ THUẾ</h1>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'Search' %}" method="POST" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="input-group mt-3 mb-md-3">
+                                <input type="text" class="form-control" name="TAXCODE">
+                                <div class="input-group-append text-info">
+                                    <button type="submit" class="btn btn-outline-danger" >Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        <ul class="list-group mb-md-2 mt-3">
+                            {% for list in lists %}
+                            <li class="list-group-item">{{list}}</li>
+                            <!-- <li class="list-group-item">{{todo.tinhtrang}}</li>
+                            <li class="list-group-item">{{todo.diachi}}</li> -->
+                            {% endfor %}
+                        </ul>
+                        </div>
+
+                        <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
